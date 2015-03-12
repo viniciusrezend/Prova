@@ -25,8 +25,8 @@ function DisciplinaController($scope, $http) {
         }
 
         function onSuccess(data, status) {
-            $scope.log(data);
             funcaoCarregar();
+            $scope.log(data);
             $scope.disciplina = {};
             $scope.isNovo = true;
         }
@@ -44,8 +44,9 @@ function DisciplinaController($scope, $http) {
     function funcaoExcluir(vitima) {
         $http.delete("/disciplinas/" + vitima.id).success(onSuccess).error(onError);
         function onSuccess(data, status) {
-            console.log(data);
             funcaoCarregar();
+            console.log(data);
+            
         }
 
         function onError(data, status) {
